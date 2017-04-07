@@ -7,8 +7,12 @@ Middleware classes for Laravel
 Install the ```saritasa/laravel-middleware``` package:
 
 ```bash
-$ composer require saritasa/middleware
+$ composer require saritasa/laravel-middleware
 ```
+
+Register middleware class in your App\Http\Kernel.php 
+as global or route middleware with recommended name.
+See https://laravel.com/docs/middleware#registering-middleware
 
 ## Available classes
 ClassName / middleware-key
