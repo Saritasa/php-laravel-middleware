@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace Saritasa\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
 
 /**
  * Redirect to HTTPS, if environment is not local.
@@ -12,6 +13,8 @@ use Illuminate\Http\Request;
  */
 class ForceHttps
 {
+    const HTTPS = 'https';
+
     /**
      * Handle an incoming request.
      *
@@ -29,7 +32,7 @@ class ForceHttps
             return redirect()->secure($request->getRequestUri());
         }
         else {
-            \URL::forceSchema('https');
+            URL::forceScheme(static::HTTPS);
         }
 
         return $next($request);
@@ -42,7 +45,23 @@ class ForceHttps
     private function isSecure(Request $request)
     {
         return $request->secure()
-            || $request->header('HTTP_X_FORWARDED_PROTO') == 'https'
-            || $request->header('X-Forwarded-Proto') == 'https';
+            || $this->headerContains($request,'HTTP_X_FORWARDED_PROTO', static::HTTPS)
+            || $this->headerContains($request,'X-Forwarded-Proto', static::HTTPS);
+    }
+
+    private function headerContains(Request $request, string $headerName, string $expectedValue): bool
+    {
+        $actualValue = $request->header($headerName);
+        if ($actualValue) {
+            if (is_string($actualValue)) {
+                return strcasecmp($expectedValue, $actualValue) == 0;
+            }
+            if (is_array($actualValue)) {
+                foreach ($actualValue as $proto) {
+                    return strcasecmp($expectedValue, $proto) == 0;
+                }
+            }
+        }
+        return false;
     }
 }
