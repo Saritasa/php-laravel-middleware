@@ -32,7 +32,14 @@ class ForceHttps
             return redirect()->secure($request->getRequestUri());
         }
         else {
-            URL::forceScheme(static::HTTPS);
+            $isOldLaravel = version_compare(app()->version(), '5.4.0', '<');
+
+            if ($isOldLaravel) {
+                URL::forceSchema(static::HTTPS);
+            }
+            else {
+                URL::forceScheme(static::HTTPS);
+            }
         }
 
         return $next($request);
