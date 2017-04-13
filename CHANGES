@@ -1,3 +1,6 @@
+1.0.2
+- Add Service Provider, which registers aliases for middleware
+
 1.0.1
 - Make ForceHttps compatible both with Laravel 5.4 and older versions
 

@@ -10,8 +10,21 @@ Install the ```saritasa/laravel-middleware``` package:
 $ composer require saritasa/laravel-middleware
 ```
 
-Register middleware class in your App\Http\Kernel.php 
-as global or route middleware with recommended name.
+**Optionally**
+Add the MiddlewareServiceProvider in ``config/app.php``:
+
+```php
+'providers' => array(
+    // ...
+    Saritasa\Middleware\MiddlewareServiceProvider::class,
+)
+```
+
+It will register default aliases (middleware-key) for all middleware classes
+
+Alternatively, you can just register selected middleware classes in
+*App\Http\Kernel.php* yourself
+
 See https://laravel.com/docs/middleware#registering-middleware
 
 ## Available classes
