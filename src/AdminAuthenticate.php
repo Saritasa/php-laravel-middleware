@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Saritasa\Database\Eloquent\Models\User;
+use Saritasa\Roles\Enums\Roles;
 
 class AdminAuthenticate
 {
@@ -20,7 +21,7 @@ class AdminAuthenticate
     public function handle($request, Closure $next, $guard = null)
     {
         $user = Auth::guard($guard)->user();
-        if (!$user || $user->role != User::ROLE_ADMIN) {
+        if (!$user || $user->hasRole(Roles::Admin)) {
             if ($request->ajax()) {
                 return response('Unauthorized.', $user ? Response::HTTP_FORBIDDEN : Response::HTTP_UNAUTHORIZED);
             } else {
