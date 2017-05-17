@@ -21,7 +21,7 @@ class AdminAuthenticate
     public function handle($request, Closure $next, $guard = null)
     {
         $user = Auth::guard($guard)->user();
-        if (!$user || $user->hasRole(Roles::Admin)) {
+        if (!$user || $user->hasRole(Roles::ADMIN)) {
             if ($request->ajax()) {
                 return response('Unauthorized.', $user ? Response::HTTP_FORBIDDEN : Response::HTTP_UNAUTHORIZED);
             } else {
