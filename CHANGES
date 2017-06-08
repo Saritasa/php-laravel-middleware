@@ -1,8 +1,6 @@
-1.0.4
+1.0.3
 -----
 - Update dependencies versions
-
-1.0.3
 - Use saritasa/roles-simple package for admin permissions check
 
 1.0.2
