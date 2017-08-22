@@ -12,7 +12,7 @@ class NoCache
 {
     /**
      * @param Request $request HTTP Request
-     * @param Closure $next Next middleware handler
+     * @param Closure $next    Next middleware handler
      * @return mixed
      */
     public function handle(Request $request, Closure $next)

@@ -19,7 +19,7 @@ class ForceHttps
      * Handle an incoming request.
      *
      * @param  Request $request HTTP Request to process
-     * @param  Closure $next Next handler in chain
+     * @param  Closure $next    Next handler in chain
      * @return mixed
      */
     public function handle(Request $request, Closure $next)
@@ -30,14 +30,12 @@ class ForceHttps
 
         if (!$this->isSecure($request)) {
             return redirect()->secure($request->getRequestUri());
-        }
-        else {
+        } else {
             $isOldLaravel = version_compare(app()->version(), '5.4.0', '<');
 
             if ($isOldLaravel) {
                 URL::forceSchema(static::HTTPS);
-            }
-            else {
+            } else {
                 URL::forceScheme(static::HTTPS);
             }
         }
@@ -47,13 +45,13 @@ class ForceHttps
 
     /**
      * @param Request $request
-     * @return bool
+     * @return boolean
      */
     private function isSecure(Request $request)
     {
         return $request->secure()
-            || $this->headerContains($request,'HTTP_X_FORWARDED_PROTO', static::HTTPS)
-            || $this->headerContains($request,'X-Forwarded-Proto', static::HTTPS);
+            || $this->headerContains($request, 'HTTP_X_FORWARDED_PROTO', static::HTTPS)
+            || $this->headerContains($request, 'X-Forwarded-Proto', static::HTTPS);
     }
 
     private function headerContains(Request $request, string $headerName, string $expectedValue): bool
