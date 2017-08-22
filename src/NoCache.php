@@ -11,8 +11,10 @@ use Illuminate\Http\Request;
 class NoCache
 {
     /**
-     * @param Request $request HTTP Request
-     * @param Closure $next    Next middleware handler
+     * Handle an incoming request.
+     *
+     * @param  Request $request HTTP Request to process
+     * @param  Closure $next Next handler in chain
      * @return mixed
      */
     public function handle(Request $request, Closure $next)

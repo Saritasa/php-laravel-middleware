@@ -1,10 +1,10 @@
 all: install run
 
 cs:
-	phpcs
+	php vendor/bin/phpcs
 
 csfix:
-	phpcbf
+	php vendor/bin/phpcbf
 
 test:
-	composer test
+	php vendor/bin/phpunit
