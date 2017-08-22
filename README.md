@@ -49,6 +49,9 @@ Insert HTTP headers, preventing content caching on proxy or in browser.
 ### AdminAuthenticate / admin
 Checks, that user has role = 'admin'. If not, access is denied.
 
+### AjaxOnly / ajax-only
+If request was not made via AJAX (with XMLHttpRequest), return 'Bad Request' error.
+
 ## Contributing
 
 1. Create fork

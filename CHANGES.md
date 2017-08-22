@@ -1,5 +1,9 @@
 # Changes History
 
+1.0.4
+-----
+Add AjaxOnly middleware
+
 1.0.3
 -----
 - Update dependencies versions
