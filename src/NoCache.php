@@ -23,7 +23,7 @@ class NoCache
 
         $response->header('Cache-Control', 'no-cache, no-store, must-revalidate');
         $response->header('Pragma', 'no-cache');
-        $response->header('Expires', '0');
+        $response->header('Expires', 'Fri, 01 Jan 1990 00:00:00 GMT');
 
         return $response;
     }
