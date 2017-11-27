@@ -28,7 +28,7 @@ class ForceHttps
             return $next($request);
         }
 
-        if (!$this->isSecure($request)) {
+        if (!RequestChecker::isSecure($request)) {
             return redirect()->secure($request->getRequestUri());
         } else {
             $isOldLaravel = version_compare(app()->version(), '5.4.0', '<');
@@ -41,44 +41,5 @@ class ForceHttps
         }
 
         return $next($request);
-    }
-
-    /**
-     * Determine, if request was made over secure channel (over HTTPS),
-     * including detection of proxy/load balancer, which terminates SSL and forwards HTTP only
-     *
-     * @param  Request $request HTTP Request
-     * @return boolean
-     */
-    private function isSecure(Request $request)
-    {
-        return $request->secure()
-            || $this->headerContains($request, 'HTTP_X_FORWARDED_PROTO', static::HTTPS)
-            || $this->headerContains($request, 'X-Forwarded-Proto', static::HTTPS);
-    }
-
-    /**
-     * Determine, if specified header has expected value,
-     * including case, when actual value is an array - then at leas one string in array must match expected value
-     *
-     * @param  Request $request       HTTP Request
-     * @param  string  $headerName    Name of checked header
-     * @param  string  $expectedValue Expected value
-     * @return boolean
-     */
-    private function headerContains(Request $request, string $headerName, string $expectedValue): bool
-    {
-        $actualValue = $request->header($headerName);
-        if ($actualValue) {
-            if (is_string($actualValue)) {
-                return strcasecmp($expectedValue, $actualValue) == 0;
-            }
-            if (is_array($actualValue)) {
-                foreach ($actualValue as $proto) {
-                    return strcasecmp($expectedValue, $proto) == 0;
-                }
-            }
-        }
-        return false;
     }
 }
