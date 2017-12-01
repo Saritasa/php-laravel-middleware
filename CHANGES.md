@@ -1,5 +1,9 @@
 # Changes History
 
+1.0.6
+-----
+Add RequestChecker utility to check is request secure and is contains header value or not
+
 1.0.5
 -----
 Add AjaxOnly middleware
