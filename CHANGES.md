@@ -1,5 +1,9 @@
 # Changes History
 
+1.0.7
+-----
+Enable Laravel's package discovery https://laravel.com/docs/5.5/packages#package-discovery
+
 1.0.6
 -----
 Add RequestChecker utility to check if request is secure and contains header value or not
