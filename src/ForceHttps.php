@@ -28,7 +28,7 @@ class ForceHttps
             return $next($request);
         }
 
-        if (!$this->isSecure($request)) {
+        if (!RequestChecker::isSecure($request)) {
             return redirect()->secure($request->getRequestUri());
         } else {
             $isOldLaravel = version_compare(app()->version(), '5.4.0', '<');
@@ -41,32 +41,5 @@ class ForceHttps
         }
 
         return $next($request);
-    }
-
-    /**
-     * @param Request $request
-     * @return bool
-     */
-    private function isSecure(Request $request)
-    {
-        return $request->secure()
-            || $this->headerContains($request, 'HTTP_X_FORWARDED_PROTO', static::HTTPS)
-            || $this->headerContains($request, 'X-Forwarded-Proto', static::HTTPS);
-    }
-
-    private function headerContains(Request $request, string $headerName, string $expectedValue): bool
-    {
-        $actualValue = $request->header($headerName);
-        if ($actualValue) {
-            if (is_string($actualValue)) {
-                return strcasecmp($expectedValue, $actualValue) == 0;
-            }
-            if (is_array($actualValue)) {
-                foreach ($actualValue as $proto) {
-                    return strcasecmp($expectedValue, $proto) == 0;
-                }
-            }
-        }
-        return false;
     }
 }

@@ -14,7 +14,8 @@ class MiddlewareServiceProvider extends ServiceProvider
         'ssl'       => ForceHttps::class,
         'api.auth'  => ApiAuthenticate::class,
         'no-cache'  => NoCache::class,
-        'admin'     => AdminAuthenticate::class
+        'admin'     => AdminAuthenticate::class,
+        'ajax-only' => AjaxOnly::class
     ];
 
     public function boot(Router $router)
