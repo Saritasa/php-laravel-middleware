@@ -1,9 +1,0 @@
-{
-  "providers": [
-    "Saritasa\\Middleware\\MiddlewareServiceProvider"
-  ],
-  "aliases": [
-    {
-    }
-  ]
-}
