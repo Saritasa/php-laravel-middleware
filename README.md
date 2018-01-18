@@ -1,5 +1,7 @@
 # Laravel Middleware
 
+[![Build Status](https://travis-ci.org/Saritasa/php-laravel-middleware.svg?branch=master)](https://travis-ci.org/Saritasa/php-laravel-middleware)
+
 Middleware classes for Laravel
 
 ## Laravel 5.x
