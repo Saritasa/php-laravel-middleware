@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 
 /**
  * Check authentication for API request
+ *
+ * @deprecated Use JWT or Dingo/API
  */
 class ApiAuthenticate
 {

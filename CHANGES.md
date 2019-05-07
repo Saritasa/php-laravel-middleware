@@ -1,5 +1,9 @@
 # Changes History
 
+2.0.0
+-----
+Exclude ApiAuthenticate from registration by service provider (conflicts with Dingo/Api), mark it as deprecated
+
 1.0.7
 -----
 Enable Laravel's package discovery https://laravel.com/docs/5.5/packages#package-discovery

@@ -12,7 +12,6 @@ class MiddlewareServiceProvider extends ServiceProvider
 {
     protected $routeMiddleware = [
         'ssl'       => ForceHttps::class,
-        'api.auth'  => ApiAuthenticate::class,
         'no-cache'  => NoCache::class,
         'admin'     => AdminAuthenticate::class,
         'ajax-only' => AjaxOnly::class
