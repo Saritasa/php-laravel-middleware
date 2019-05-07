@@ -16,7 +16,7 @@ $ composer require saritasa/laravel-middleware
 ```
 
 **Optionally**
-If you use Laraval 5.4 or less,
+If you use Laravel 5.4 or less,
 or 5.5+ with [package discovery](https://laravel.com/docs/5.5/packages#package-discovery) disabled,
 add the MiddlewareServiceProvider in ``config/app.php``:
 
