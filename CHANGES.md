@@ -1,5 +1,9 @@
 # Changes History
 
+2.1.0
+-----
+Declare compatibility with Laravel 6
+
 2.0.0
 -----
 Exclude ApiAuthenticate from registration by service provider (conflicts with Dingo/Api), mark it as deprecated
