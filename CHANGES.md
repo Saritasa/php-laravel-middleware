@@ -1,5 +1,9 @@
 # Changes History
 
+2.1.1
+-----
+Do not force HTTPS for 'testing' environment
+
 2.1.0
 -----
 Declare compatibility with Laravel 6

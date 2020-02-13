@@ -24,7 +24,7 @@ class ForceHttps
      */
     public function handle(Request $request, Closure $next)
     {
-        if (config('app.env') === 'local' || config('app.env') === 'vagrant') {
+        if (config('app.env') === 'local' || config('app.env') === 'testing') {
             return $next($request);
         }
 
