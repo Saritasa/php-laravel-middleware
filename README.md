@@ -1,6 +1,6 @@
 # Laravel Middleware
 
-[![Build Status](https://travis-ci.org/Saritasa/php-laravel-middleware.svg?branch=master)](https://travis-ci.org/Saritasa/php-laravel-middleware)
+[![PHP CodeSniffer](https://github.com/Saritasa/php-laravel-middleware/workflows/PHP%20Codesniffer/badge.svg)](https://github.com/Saritasa/php-laravel-middleware/actions)
 [![Release](https://img.shields.io/github/release/saritasa/php-laravel-middleware.svg)](https://github.com/Saritasa/php-laravel-middleware/releases)
 [![PHPv](https://img.shields.io/packagist/php-v/saritasa/laravel-middleware.svg)](http://www.php.net)
 [![Downloads](https://img.shields.io/packagist/dt/saritasa/laravel-middleware.svg)](https://packagist.org/packages/saritasa/laravel-middleware)
