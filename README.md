@@ -7,7 +7,7 @@
 
 Middleware classes for Laravel
 
-## Laravel 5.x/6.x
+## Laravel 5.x/6.x/9.x
 
 Install the ```saritasa/laravel-middleware``` package:
 
