@@ -1,5 +1,13 @@
 # Changes History
 
+2.1.3
+------
+- Added support up to Laravel 11
+
+2.1.2
+------
+- Added support up to Laravel 9
+
 2.1.1
 -----
 Do not force HTTPS for 'testing' environment
